@@ -28,20 +28,20 @@ class CreatePage extends StatelessWidget {
                       border: new Border.all(color: Colors.blueAccent)),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text('เลือกวันจันทร์ - อาทิตย์'),
-                    Column(
-                      children: <Widget>[
-                        Text('All'),
-                        Checkbox(
-                          onChanged: (bool value) {},
-                          value: false,
-                        ),
-                      ],
-                    )
-                  ],
-                )
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text('เลือกวันจันทร์ - อาทิตย์'),
+                      Column(
+                        children: <Widget>[
+                          Text('All'),
+                          Checkbox(
+                            onChanged: (bool value) {},
+                            value: false,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
               ],
             ),
             Column(

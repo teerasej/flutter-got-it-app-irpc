@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:irpc_got_it/models/reminder_model.dart';
 
 class TodoPage extends StatelessWidget {
+
+  List<ReminderModel> _reminderList = [
+    ReminderModel('hello', DateTime.now()),
+    ReminderModel('ok', DateTime.now()),
+    ReminderModel('yes', DateTime.now()),
+    ReminderModel('test', DateTime.now()),
+    ReminderModel('update', DateTime.now()),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,20 +22,19 @@ class TodoPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  title: Text('27 May 2019'),
-                  subtitle: Text('Wake up 5 am'),
-                ),
-                ListTile(
-                  title: Text('25 May 2019'),
-                  subtitle: Text('Breakfast at canteen'),
-                ),
-                ListTile(
-                  subtitle: Text('Present C6 10 A.M.'),
-                )
-              ],
+            child: ListView.builder(
+              itemCount: _reminderList.length,
+              itemBuilder: (BuildContext context, int index){
+
+                var reminder = _reminderList[index];
+
+                var widget = ListTile(
+                  title: Text(reminder.datetime.toString()),
+                  subtitle: Text(reminder.note),
+                );
+
+                return widget;
+              },
             ),
           ),
           Padding(
