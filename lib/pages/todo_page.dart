@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:irpc_got_it/models/reminder_model.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class TodoPage extends StatelessWidget {
 
@@ -27,10 +29,14 @@ class TodoPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index){
 
                 var reminder = _reminderList[index];
+                
+                var dateText = DateFormat('EEEE d MMMM y').format(reminder.datetime);
+                var ago = timeago.format(reminder.datetime);
 
                 var widget = ListTile(
-                  title: Text(reminder.datetime.toString()),
+                  title: Text(dateText),
                   subtitle: Text(reminder.note),
+                  trailing: Text(ago),
                 );
 
                 return widget;
